@@ -14,12 +14,18 @@
 		$r 			= mysqli_fetch_array($login);
 
 		if($ketemu > 0){
-			$_SESSION['iduser'] 	= $r['id_user'];
-			$_SESSION['passuser'] 	= $r['password'];
-			echo "USER BERHASIL LOGIN<br>";
-			echo "id user =".$_SESSION['iduser']."<br>";
-			echo "password=".$_SESSION['passuser']."<br>";
-			echo "<a href=logout.php><b>LOGOUT</b></a></center>";
+
+			$sqlTerakhirLogin 	= "UPDATE user SET terakhir_login=NOW() WHERE id_user='$r[id_user]'";
+			$prosesUpdate 		= mysqli_query($con,$sqlTerakhirLogin);
+
+			if (!empty($prosesUpdate)) {
+				$_SESSION['iduser'] 	= $r['id_user'];
+				$_SESSION['passuser'] 	= $r['password'];
+				echo "USER BERHASIL LOGIN<br>";
+				echo "id user =".$_SESSION['iduser']."<br>";
+				echo "password=".$_SESSION['passuser']."<br>";
+				echo "<a href=logout.php><b>LOGOUT</b></a></center>";
+			}
 		}
 		mysqli_close($con);
 	}else {
