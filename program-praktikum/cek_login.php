@@ -14,7 +14,6 @@
 		$r 			= mysqli_fetch_array($login);
 
 		if($ketemu > 0){
-
 			$sqlTerakhirLogin 	= "UPDATE user SET terakhir_login=NOW() WHERE id_user='$r[id_user]'";
 			$prosesUpdate 		= mysqli_query($con,$sqlTerakhirLogin);
 
