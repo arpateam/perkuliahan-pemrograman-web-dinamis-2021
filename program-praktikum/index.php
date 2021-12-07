@@ -11,7 +11,7 @@
 </head>
 <body>
 	<a href="tambah.php">Tambah Data Baru</a><br/><br/>
-	<table width='80%' border=1>
+	<table width='80%' border='1' style="margin-bottom: 25px;">
 		<tr>
 			<th>Nim</th>
 			<th>Nama</th>
@@ -32,5 +32,6 @@
 			}
 		?>
 	</table>
+	<a target="_blank" href="lap_mhs.php" style="background-color: #007BFF;color: #fff;font-size: 14px;padding: 10px;border-radius: 10px;box-sizing: border-box;">CETAK LAPORAN MAHASISWA</a>
 </body>
 </html>
